@@ -1,15 +1,15 @@
 const Pool = require('pg').Pool;
 
 const pool = new Pool({
-  // connectionString: process.env.DATABASE_URL,
-  // ssl: {
-  //   rejectUnauthorized: false,
-  // },
-  host: 'localhost',
-  port: 5432,
-  user: 'postgres',
-  password: 'docker',
-  database: 'trivia-game',
+  connectionString: process.env.DATABASE_URL,
+  ssl: {
+    rejectUnauthorized: false,
+  },
+  // host: 'localhost',
+  // port: 5432,
+  // user: 'postgres',
+  // password: 'docker',
+  // database: 'trivia-game',
 });
 
 const getRanking = async (req, res) => {
