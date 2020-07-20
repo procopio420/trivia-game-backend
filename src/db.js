@@ -28,6 +28,10 @@ const setRanking = async (req, res) => {
 
   const query = 'INSERT INTO ranking (name, score, picture) VALUES ($1, $2, $3)';
 
+  if (name === 'Nome da pessoa' || name === 'Outra pessoa' || name === 'Mais uma pessoa') {
+    return res.status(500).json({ ok: false });
+  }
+
   try {
     await pool.query(query, [name, score, picture]);
     return res.status(200).json({ ok: true });
