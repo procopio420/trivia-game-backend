@@ -14,10 +14,14 @@ const pool = new Pool({
 
 const getRanking = async (req, res) => {
   const query = 'SELECT * FROM ranking';
+  console.log('req');
   try {
     const result = await pool.query(query);
+    console.log(result);
+
     return res.status(200).json(result.rows);
   } catch (e) {
+    console.log(e);
     return res.status(500).json({ ok: false });
   }
 };
